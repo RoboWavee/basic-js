@@ -20,6 +20,12 @@ function getSeason(date) {
     throw new Error('Invalid date!');
   }
 
+  try {
+    date.getTime();
+  } catch (error) {
+    throw new Error('Invalid date!');
+  }
+
 
   const month = date.getMonth();
 
