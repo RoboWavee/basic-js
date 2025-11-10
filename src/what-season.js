@@ -20,26 +20,24 @@ function getSeason(date) {
     throw new Error('Invalid date!');
   }
 
+ 
   try {
-    date.getTime();
+    date.getTime(); 
   } catch (error) {
     throw new Error('Invalid date!');
   }
 
+  const month = date.getMonth(); 
 
-  const month = date.getMonth();
 
-  switch (month) {
-    case 11: case 0: case 1:   
-      return 'winter';
-    case 2: case 3: case 4:    
-      return 'spring';
-    case 5: case 6: case 7:    
-      return 'summer';
-    case 8: case 9: case 10:   
-      return 'autumn';
-    default:
-      throw new Error('Invalid date!');
+  if (month >= 2 && month <= 4) {
+    return 'spring';
+  } else if (month >= 5 && month <= 7) {
+    return 'summer';
+  } else if (month >= 8 && month <= 10) {
+    return 'autumn';
+  } else {
+    return 'winter';
   }
 }
 
